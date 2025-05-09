@@ -25,6 +25,8 @@ export default {
       animation: {
         twinkle: "twinkle 2s ease-in-out forwards",
         meteor: "meteor 3s ease-in-out forwards",
+        float: "float 6s ease-in-out infinite",
+        "float-delay": "float 6s ease-in-out 2s infinite",
       },
       keyframes: {
         twinkle: {
@@ -52,6 +54,17 @@ export default {
           "100%": { 
             opacity: 0, 
             transform: "translateY(0)" 
+          },
+        },
+        float: {
+          "0%": {
+            transform: "translateY(0) rotate(0deg)",
+          },
+          "50%": {
+            transform: "translateY(-20px) rotate(5deg)",
+          },
+          "100%": {
+            transform: "translateY(0) rotate(0deg)",
           },
         },
       },

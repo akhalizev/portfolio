@@ -1,45 +1,4 @@
-<div id="design-animation" class="fixed left-0 top-0 w-full"></div>
 
-<script>
-  // Import Lottie dynamically
-  console.log('DesignAnimation script loaded');
-  import('lottie-web').then((lottieModule) => {
-    const lottie = lottieModule.default;
-    
-    function runLottie() {
-      const container = document.getElementById('design-animation');
-      console.log('DOMContentLoaded or immediate run');
-      if (container) {
-        console.log('Animation container found:', container);
-        const animation = lottie.loadAnimation({
-          container,
-          renderer: 'svg',
-          loop: true,
-          autoplay: true,
-          path: '/animations/design-tools.json'
-        });
-
-        animation.addEventListener('DOMLoaded', () => {
-          console.log('Animation loaded successfully');
-        });
-
-        animation.addEventListener('error', (error) => {
-          console.error('Animation error:', error);
-        });
-      } else {
-        console.error('Animation container not found');
-      }
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', runLottie);
-    } else {
-      runLottie();
-    }
-  }).catch(error => {
-    console.error('Failed to load Lottie:', error);
-  });
-</script>
 
 <style>
   #design-animation {

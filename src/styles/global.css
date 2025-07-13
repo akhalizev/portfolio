@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,41 +9,16 @@
 }
 
 @layer base {
-  @font-face {
-    font-family: "Atkinson";
-    src: url("/fonts/atkinson-regular.woff") format("woff");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  html {
+    @apply bg-cyber-dark text-cyber-green;
+    font-family: 'Orbitron', sans-serif;
   }
-  
-  @font-face {
-    font-family: "Atkinson";
-    src: url("/fonts/atkinson-bold.woff") format("woff");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-  }
-}
-
-html {
-  overflow-y: scroll;
-  color-scheme: light;
-  background-color: white;
-  font-family: "Atkinson", sans-serif;
-  
-}
-
-html.dark {
-  color-scheme: dark;
-  background-color: black;
 }
 
 html,
 body {
   @apply h-full w-full antialiased;
-  @apply bg-white dark:bg-black;
-  @apply text-black/75 dark:text-white/75;
+  @apply bg-cyber-dark text-cyber-green;
 }
 
 body {
@@ -49,11 +26,11 @@ body {
 }
 
 main {
-  @apply flex flex-col flex-1 bg-white dark:bg-black;
+  @apply flex flex-col flex-1 bg-cyber-dark;
 }
 
 header {
-  @apply border-b;
+  @apply border-b border-cyber-blue/25;
   @apply transition-all duration-300 ease-in-out;
 }
 
@@ -62,32 +39,50 @@ header:not(.scrolled) {
 }
 
 header.scrolled {
-  @apply bg-white/75 dark:bg-black/50;
-  @apply border-black/10 dark:border-white/25;
+  @apply bg-cyber-dark/50;
+  @apply border-cyber-blue/25;
   @apply backdrop-blur-sm saturate-200;
 }
 
 article {
-  @apply prose dark:prose-invert max-w-full pb-12;
+  @apply prose prose-invert max-w-full pb-12;
+  --tw-prose-body: theme(colors.cyber-green);
+  --tw-prose-headings: theme(colors.cyber-blue);
+  --tw-prose-links: theme(colors.cyber-pink);
+  --tw-prose-bold: theme(colors.cyber-yellow);
+  --tw-prose-code: theme(colors.cyber-pink);
+  --tw-prose-quotes: theme(colors.cyber-yellow);
+  --tw-prose-quote-borders: theme(colors.cyber-blue);
 }
 
 .page-heading {
-  @apply font-semibold text-black dark:text-white;
+  @apply font-semibold text-cyber-blue;
 }
 
 .blend {
   @apply transition-all duration-300 ease-in-out;
 }
 
-/** Light theme particles on home page */
-@keyframes animateParticle {
-  from {
-    transform: translateY(0px);
+.text-glow {
+  text-shadow: 0 0 5px theme('colors.cyber-pink'), 0 0 10px theme('colors.cyber-pink'), 0 0 15px theme('colors.cyber-pink');
+}
+
+@keyframes glitch {
+  2%,64% {
+    transform: translate(2px,0) skew(0deg);
   }
-  to {
-    transform: translateY(-2000px);
+  4%,60% {
+    transform: translate(-2px,0) skew(0deg);
+  }
+  62% {
+    transform: translate(0,0) skew(5deg);
   }
 }
+
+.glitch {
+  animation: glitch 1s linear infinite;
+}
+
 
 /** styles for public /animation.js */
 .animate {
@@ -106,6 +101,8 @@ article img {
   padding-bottom: 20px;
   display: block;
   margin: 0 auto;
+  border: 2px solid theme('colors.cyber-blue');
+  box-shadow: 0 0 15px theme('colors.cyber-blue');
 }
 
 /**
@@ -126,7 +123,7 @@ article img {
  */
 
 #meteors .shower {
-  @apply absolute inset-0 top-0;;
+  @apply absolute inset-0 top-0;
   @apply left-1/2 -translate-x-1/2;
   @apply w-screen aspect-square;
 }
@@ -134,7 +131,7 @@ article img {
 #meteors .meteor {
   @apply animate-meteor; /* defined in tailwind.config */
   @apply absolute top-1/2 left-1/2 w-px h-[75vh];
-  @apply bg-gradient-to-b from-white to-transparent;
+  @apply bg-gradient-to-b from-cyber-green to-transparent;
 }
 
 #meteors .shower.ur {
@@ -164,5 +161,5 @@ article img {
 }
 
 .copy-svg {
-  @apply w-full aspect-square text-white opacity-70 hover:opacity-90;
+  @apply w-full aspect-square text-cyber-green opacity-70 hover:opacity-90;
 }

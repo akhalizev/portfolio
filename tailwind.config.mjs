@@ -2,10 +2,16 @@ import defaultTheme from "tailwindcss/defaultTheme"
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: ["class"],
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      colors: {
+        'cyber-blue': '#00f6ff',
+        'cyber-pink': '#ff00ff',
+        'cyber-green': '#39ff14',
+        'cyber-yellow': '#ffff00',
+        'cyber-dark': '#0a0a0a',
+      },
       fontFamily: {
         "sans": ["Atkinson", ...defaultTheme.fontFamily.sans],
       },

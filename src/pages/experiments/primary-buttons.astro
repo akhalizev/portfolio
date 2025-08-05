@@ -1,0 +1,14 @@
+---
+import PageLayout from "@layouts/PageLayout.astro"
+import ButtonCollection from "@components/ButtonCollection.tsx"
+---
+
+<PageLayout title="Primary Buttons" description="A demonstration of primary button components.">
+  <section class="max-w-2xl mx-auto py-16 px-4 pt-48">
+    <a href="/experiments" class="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors mb-4 inline-block">&larr; Back to Experiments</a>
+    <h1 class="text-3xl font-bold mb-4">Primary Buttons</h1>
+    <div class="bg-black/5 dark:bg-white/5 rounded-lg p-6 min-h-[200px]">
+      <ButtonCollection client:load />
+    </div>
+  </section>
+</PageLayout>

@@ -3,14 +3,17 @@ import defaultTheme from "tailwindcss/defaultTheme"
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        'cyber-blue': '#00f6ff',
-        'cyber-pink': '#ff00ff',
-        'cyber-green': '#39ff14',
-        'cyber-yellow': '#ffff00',
-        'cyber-dark': '#0a0a0a',
+        // Modern tech-inspired color palette using standard Tailwind colors
+        // These will automatically work with dark: modifier
+        "cyber-dark": "#0f172a",
+        "cyber-blue": "#3b82f6", 
+        "cyber-green": "#10b981",
+        "cyber-pink": "#8b5cf6",
+        "cyber-yellow": "#f59e0b",
       },
       fontFamily: {
         "sans": ["Atkinson", ...defaultTheme.fontFamily.sans],

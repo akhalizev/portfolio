@@ -12,6 +12,71 @@ import { SITE } from "@consts"
 <html lang="en">
   <head>
     <BaseHead title={`${title} | ${SITE.TITLE}`} description={description} />
+    <script is:inline>
+      // Initial theme detection and application
+      const theme = (() => {
+        if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+          return localStorage.getItem("theme");
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark";
+        }
+        return "light";
+      })();
+
+      if (theme === "light") {
+        document.documentElement.classList.remove("dark");
+      } else {
+        document.documentElement.classList.add("dark");
+      }
+
+      // Theme toggle functionality
+      function applyTheme() {
+        const theme = localStorage.getItem("theme") === "dark" ? "dark" : "light";
+        console.log(`Applying theme: ${theme}`);
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      }
+
+      function toggleTheme() {
+        console.log("Theme toggle button clicked!");
+        const currentTheme = document.documentElement.classList.contains("dark") ? "light" : "dark";
+        localStorage.setItem("theme", currentTheme);
+        applyTheme();
+      }
+
+      function initializeTheme() {
+        console.log("Initializing theme script...");
+        const headerButton = document.getElementById("header-theme-button");
+        const drawerButton = document.getElementById("drawer-theme-button");
+
+        if (headerButton) {
+          console.log("Header theme button found. Attaching listener.");
+          headerButton.addEventListener("click", toggleTheme);
+        } else {
+          console.error("Header theme button NOT found!");
+        }
+
+        if (drawerButton) {
+          console.log("Drawer theme button found. Attaching listener.");
+          drawerButton.addEventListener("click", toggleTheme);
+        } else {
+          console.error("Drawer theme button NOT found!");
+        }
+
+        // Apply theme on initial load
+        applyTheme();
+      }
+
+      // Initialize on page load and Astro navigation
+      document.addEventListener("astro:page-load", initializeTheme);
+      document.addEventListener("DOMContentLoaded", initializeTheme);
+      
+      console.log("Theme script loaded and event listeners attached.");
+    </script>
   </head>
   <body>
     <Header />

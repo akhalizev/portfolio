@@ -1,0 +1,44 @@
+---
+import PageLayout from "@layouts/PageLayout.astro"
+import FigmaButton from "@components/FigmaButton.tsx"
+---
+
+<PageLayout title="Figma Buttons" description="A demonstration of Figma button components.">
+  <section class="max-w-2xl mx-auto py-16 px-4 pt-48">
+    <a href="/experiments" class="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors mb-4 inline-block">&larr; Back to Experiments</a>
+    <h1 class="text-3xl font-bold mb-4">Figma Primary Buttons</h1>
+    <div class="bg-black/5 dark:bg-white/5 rounded-lg p-6 min-h-[200px]">
+      <div class="space-y-4">
+        <!-- Button States Demo -->
+        <div class="space-y-3">
+          <div class="flex flex-wrap gap-4 items-center">
+            <span class="text-sm text-black/60 dark:text-white/60 w-16">Default:</span>
+            <FigmaButton type="primary" state="default" client:load>Primary</FigmaButton>
+          </div>
+          <div class="flex flex-wrap gap-4 items-center">
+            <span class="text-sm text-black/60 dark:text-white/60 w-16">Hover:</span>
+            <FigmaButton type="primary" state="hover" client:load>Primary</FigmaButton>
+          </div>
+          <div class="flex flex-wrap gap-4 items-center">
+            <span class="text-sm text-black/60 dark:text-white/60 w-16">Focus:</span>
+            <FigmaButton type="primary" state="focus" client:load>Primary</FigmaButton>
+          </div>
+          <div class="flex flex-wrap gap-4 items-center">
+            <span class="text-sm text-black/60 dark:text-white/60 w-16">Disabled:</span>
+            <FigmaButton type="primary" disabled client:load>Primary</FigmaButton>
+          </div>
+        </div>
+        
+        <!-- Interactive Buttons -->
+        <div class="mt-6 pt-4 border-t border-black/10 dark:border-white/10">
+          <h4 class="text-md font-medium mb-3 text-black/70 dark:text-white/70">Interactive Examples</h4>
+          <div class="flex flex-wrap gap-3">
+            <FigmaButton type="primary" onClick={() => alert('Button 1 clicked!')} client:load>Click Me</FigmaButton>
+            <FigmaButton type="primary" onClick={() => console.log('Button 2 clicked!')} client:load>Log to Console</FigmaButton>
+            <FigmaButton type="primary" client:load>Animate</FigmaButton>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>

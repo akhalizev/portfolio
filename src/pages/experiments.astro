@@ -1,52 +1,15 @@
 ---
 import PageLayout from "@layouts/PageLayout.astro"
+import Thumbnail from "@components/Thumbnail.tsx"
 ---
 
 <PageLayout title="Experiments" description="A space for coding experiments, prototypes, and fun ideas.">
   <section class="max-w-2xl mx-auto py-16 px-4 pt-48">
     <h1 class="text-3xl font-bold mb-4">Coding Experiments</h1>
-    <p class="mb-8 text-lg text-black/70 dark:text-white/70">This is a playground for code snippets, prototypes, and creative coding ideas. Add your experiments below!</p>
-    <div class="bg-black/5 dark:bg-white/5 rounded-lg p-6 min-h-[200px]">
-      <!-- Your code experiments go here -->
-      <div class="relative inline-flex text-left">
-        <!-- Main button -->
-        <button type="button" class="inline-flex justify-center rounded-l-md border border-gray-300 px-4 py-2 bg-white dark:bg-gray-800 text-sm leading-5 font-medium text-gray-700 dark:text-gray-200 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 dark:active:bg-gray-700 active:text-gray-800 dark:active:text-gray-200 transition ease-in-out duration-150">
-          Options
-        </button>
-        <!-- Split button -->
-        <button id="split-dropdown-button" type="button" class="inline-flex items-center px-2 py-2 rounded-r-md border border-l-0 border-gray-300 bg-white dark:bg-gray-800 text-sm leading-5 font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 dark:active:bg-gray-700 active:text-gray-700 dark:active:text-gray-300 transition ease-in-out duration-150" aria-label="Open options">
-          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-          </svg>
-        </button>
-        <!-- Dropdown menu -->
-        <div id="split-dropdown-menu" class="origin-top-right absolute right-0 mt-10 w-56 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 hidden">
-          <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-100" role="menuitem">Action</a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-100" role="menuitem">Another action</a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-100" role="menuitem">Something else here</a>
-          </div>
-        </div>
-      </div>
-
-      <script>
-        const button = document.getElementById('split-dropdown-button');
-        const menu = document.getElementById('split-dropdown-menu');
-
-        if (button && menu) {
-          button.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-          });
-
-          // Optional: Close dropdown when clicking outside
-          document.addEventListener('click', (event) => {
-            if (!button.contains(event.target as Node) && !menu.contains(event.target as Node)) {
-              menu.classList.add('hidden');
-            }
-          });
-        }
-      </script>
-      <p class="italic text-black/40 dark:text-white/40">Start experimenting...</p>
+    <p class="mb-8 text-lg text-black/70 dark:text-white/70">This is a playground for code snippets, prototypes, and creative coding ideas. Click on a thumbnail to see an experiment.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <Thumbnail title="Figma Primary Buttons" href="/experiments/figma-buttons" client:load />
+      <Thumbnail title="Primary Buttons" href="/experiments/primary-buttons" client:load />
     </div>
   </section>
 </PageLayout>

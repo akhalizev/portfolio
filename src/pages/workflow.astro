@@ -1,0 +1,17 @@
+---
+import PageLayout from "@/layouts/PageLayout.astro";
+import { SEO } from "astro-seo";
+import WorkflowComponent from "@/components/Workflow.tsx";
+---
+
+<PageLayout>
+  <SEO
+    slot="head"
+    title="Workflow | My Portfolio"
+    description="An interactive visualization of my design and development workflow."
+  />
+  <main class="p-8">
+    <h1 class="text-4xl font-bold text-center text-accent-2 mb-12">My Workflow</h1>
+    <WorkflowComponent client:load />
+  </main>
+</PageLayout>

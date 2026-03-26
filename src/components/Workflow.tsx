@@ -16,6 +16,7 @@ const workflowData = [
       'Guideline Development: Establish and update design system guidelines.',
       'Component Creation: Design reusable components (e.g., buttons, modals) in Figma.',
       'Version Control: Document and update components for team use.',
+      'Plugin Development: Build internal Figma tools that capture the design details needed for consistency and faster production.',
     ],
   },
   {
@@ -31,6 +32,15 @@ const workflowData = [
     details: [
       'Story Review: Evaluate user stories for accuracy and alignment with designs.',
       'Stakeholder Communication: Present designs; clarify',
+    ],
+  },
+  {
+    title: 'Figma Plugin Innovation',
+    details: [
+      'Tool Building Mindset: I create plugins to solve real workflow gaps for myself first, then shape them so they can help the wider design community.',
+      'Variable Export Plugin: I built this before Figma offered native variable export, enabling teams to move token data into engineering workflows earlier.',
+      'AI + Design Bridge: I designed the plugin workflow before MCP-based AI integrations with Figma were available, proving I can establish new paths when standard tooling does not exist yet.',
+      'UX–Dev Alignment: These plugins reduce translation loss between UX and engineering, improving consistency, implementation speed, and handoff clarity.',
     ],
   },
 ];
